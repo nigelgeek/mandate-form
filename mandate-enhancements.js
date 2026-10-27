@@ -841,7 +841,7 @@
         if (selected) submission.append(fieldName, selected, selected.name);
       });
 
-      const response = await fetch('/api/submit', { method: 'POST', body: submission });
+      const response = await fetch('/.netlify/functions/submit', { method: 'POST', body: submission });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || `Submission failed with status ${response.status}.`);
       clearTimeout(saveTimer);
