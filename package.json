@@ -1,0 +1,19 @@
+{
+  "name": "lynchpin-mandate-form",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^10.2.1"
+  }
+}

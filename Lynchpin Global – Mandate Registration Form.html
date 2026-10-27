@@ -1,0 +1,192 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Lynchpin Global – Mandate Registration Form</title>
+<style>
+:root{--bg:#14171d;--card:#1c2029;--ink:#eceae4;--mut:#9aa1ae;--line:#323846;--acc:#c9a85f;--navy:#6fa3dc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171d;--card:#1c2029;--ink:#eceae4;--mut:#9aa1ae;--line:#323846;--acc:#c9a85f;--navy:#6fa3dc}}
+:root[data-theme="dark"]{--bg:#14171d;--card:#1c2029;--ink:#eceae4;--mut:#9aa1ae;--line:#323846;--acc:#c9a85f;--navy:#6fa3dc}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{max-width:900px;margin:0 auto;padding:28px 16px 8px}
+h1{font:600 28px Georgia,serif;margin:0;letter-spacing:.02em}header p{color:var(--mut);margin:4px 0}
+.brand{color:var(--acc);letter-spacing:.25em;font-size:12px;font-weight:600}
+.logo{display:block;max-width:300px;width:100%;height:auto;margin-bottom:10px}
+#printdoc{display:none}
+.pd-head h1{margin:8px 0 2px}.pd-head p{color:var(--mut);margin:2px 0}
+.pd-row{display:grid;grid-template-columns:minmax(180px,240px) 1fr;gap:2px 14px;padding:4px 0;border-bottom:1px solid var(--line);font-size:13px;align-items:baseline;break-inside:avoid;page-break-inside:avoid}
+.pd-l{color:var(--mut)}
+.pd-sig{height:64px;border:1px solid var(--line);border-radius:4px;background:#fff}
+form{max-width:900px;margin:0 auto;padding:8px 16px 48px}
+section,details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
+h2{font:600 13px system-ui;text-transform:uppercase;letter-spacing:.1em;color:#A0784E;margin:0 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+summary{cursor:pointer;font-weight:600;color:var(--navy)}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.full,fieldset{grid-column:1/-1}
+label{display:flex;flex-direction:column;font-size:12px;color:var(--mut);gap:4px}
+input[type=text],input[type=date],input[type=email],input[type=tel],input[type=number],input[type=file],textarea,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px;width:100%}
+input:focus,textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
+fieldset{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+legend{font-size:12px;color:var(--mut);padding:0;margin-bottom:4px;float:left;width:100%}
+fieldset label{flex-direction:row;align-items:center;gap:6px;font-size:14px;color:var(--ink)}
+.note{font-size:12px;color:var(--mut);grid-column:1/-1;margin:0}
+.terms{max-height:260px;overflow:auto;border:1px solid var(--line);border-radius:6px;padding:10px 14px;font-size:13px;background:var(--bg)}.terms li{margin:6px 0}
+canvas{width:100%;height:130px;border:1px dashed var(--line);border-radius:6px;background:var(--bg);touch-action:none}
+button{font:inherit;cursor:pointer;border-radius:8px;border:1px solid var(--navy);background:var(--navy);color:#fff;padding:10px 18px}
+button.s{background:none;color:var(--navy);padding:4px 10px;font-size:12px}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}th{background:var(--navy);color:#fff}
+[hidden]{display:none!important}.err{color:#c0392b;font-size:13px}
+#out{width:100%;height:220px;font:12px monospace}
+.wizard-progress{margin:10px 0 18px;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.wizard-progress-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.wizard-progress-top p{margin:0;color:var(--mut);font-size:13px}
+.wizard-progress-top strong{color:var(--ink)}
+.wizard-progress progress{display:block;width:100%;height:5px;appearance:none;border:0;background:var(--line);border-radius:5px}
+.wizard-progress progress::-webkit-progress-bar{background:var(--line);border-radius:5px}
+.wizard-progress progress::-webkit-progress-value{background:var(--acc);border-radius:5px}
+.wizard-progress progress::-moz-progress-bar{background:var(--acc);border-radius:5px}
+.wizard-steps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin:12px 0 0;padding:0;list-style:none}
+.wizard-steps li{min-width:0;color:var(--mut);font-size:11px;line-height:1.3}
+.wizard-steps li:before{content:attr(data-number);display:grid;place-items:center;width:25px;height:25px;margin-bottom:6px;border:1px solid var(--line);border-radius:50%;color:var(--mut);font-size:12px}
+.wizard-steps li[aria-current=step]{color:var(--ink);font-weight:600}
+.wizard-steps li[aria-current=step]:before{border-color:var(--acc);background:var(--acc);color:#fff}
+.wizard-page[hidden]{display:none}
+.wizard-page{animation:page-in .18s ease-out}
+.wizard-heading{font:600 21px system-ui,sans-serif;text-transform:none;letter-spacing:-.02em;color:var(--ink);border:0;margin:20px 0 10px;padding:0}
+.wizard-heading:focus{outline:2px solid var(--acc);outline-offset:4px}
+.wizard-controls{display:flex;justify-content:space-between;gap:12px;margin-top:18px}
+.wizard-controls button{min-width:120px}
+.wizard-controls button:disabled{opacity:.5;cursor:not-allowed}
+.wizard-save{font-size:12px!important}
+#err{padding:10px 12px;background:#fff2f0;border-left:3px solid #c0392b;border-radius:4px}
+@keyframes page-in{from{opacity:.7;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:560px){.wizard-progress{padding:12px}.wizard-steps{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:12px}.wizard-steps li{font-size:10px}.wizard-controls button{min-width:0;flex:1}}
+@media(prefers-reduced-motion:reduce){.wizard-page{animation:none}}
+@media print{form button,.nob{display:none}body{background:#fff;color:#000}section{break-inside:avoid}#printdoc{display:block!important}form{display:none!important}}
+</style></head><body>
+<header><img class="logo" src="new-logo-lynch.svg" alt="Lynchpin Global logo"><h1>Mandate Registration Form</h1><p>Participant Due Diligence &amp; Mandate Registration · REF: 28JFM26</p></header>
+<form id="f" novalidate></form>
+<div id="printdoc"></div>
+<script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.2/dist/html2pdf.bundle.min.js"></script>
+<script>
+const T=(n,l,t='text',x='')=>`<label>${l}<input name="${n}" type="${t}" ${x}></label>`;
+const R=(n,l,o,c='radio')=>`<fieldset><legend>${l}</legend>${o.map(v=>`<label><input type="${c}" name="${n}" value="${v}">${v}</label>`).join('')}</fieldset>`;
+const S=(t,b,c='',x='')=>`<section class="${c}" ${x}><h2>${t}</h2><div class="g">${b}</div></section>`;
+const YN=['Yes','No'],FREQ=['Monthly','Quarterly','Bi-Annually','Annually','Unspecified'];
+const ph=(n,l)=>T(n,l,'tel','inputmode="tel" placeholder="0XXXXXXXXX"');
+const addr=p=>T(p+'addr','Residential address','text','class="full"')+T(p+'landmark','Nearest landmark')+T(p+'gps','Digital address (Ghana Post GPS)','text','placeholder="GA-000-0000"')+T(p+'city','City / Town')+T(p+'postal','Postal address')+T(p+'email','Email address','email')+ph(p+'phone','Primary mobile');
+const ident=p=>T(p+'nid','National ID number (Ghana Card)')+T(p+'nplace','Place of issue')+T(p+'nissue','Issue date','date')+T(p+'nexp','Expiry date','date');
+const base=p=>R(p+'title','Title',['Mr.','Mrs.','Ms.','Prof.','Dr.','Other'])+T(p+'surname','Surname')+T(p+'first','First name')+T(p+'other','Other name(s)')+T(p+'maiden','Maiden name')+R(p+'marital','Marital status',['Single','Married'])+R(p+'gender','Gender',['Male','Female'])+T(p+'dob','Date of birth','date')+T(p+'pob','Place of birth');
+const full=p=>base(p)+T(p+'mother',"Mother's maiden name")+T(p+'father',"Father's name")+R(p+'res','Resident status',['Resident Ghanaian','Non-Resident Ghanaian','Resident Foreigner','Non-Resident Foreigner'])+T(p+'nat','Nationality')+T(p+'cor','Country of residence')+
+`<div class="g full permit" hidden><p class="note">Nationality is not Ghana — please provide:</p>${T(p+'permit','Resident permit number')+T(p+'pissue','Permit issue date','date')+T(p+'pplace','Place of issue')+T(p+'pexp','Permit expiry date','date')}</div>`+T(p+'occ','Occupation')+T(p+'prof','Profession')+T(p+'tin','TIN');
+const proof=p=>R(p+'poa','Proof of address',['Latest utility bill','Latest bank statement','Other'])+T(p+'poaother','If other, specify');
+const emp=(p,inc)=>R(p+'status','Status',['Employed','Self-employed','Unemployed','Retired','Student'])+T(p+'yrs','Years of employment','number','min=0')+T(p+'yrsc','Years of current employment','number','min=0')+T(p+'yrsp','Years of previous employment','number','min=0')+R(p+'income','Total monthly income range (GHC; incl. salary & other inflows)',inc)+T(p+'empname','Employer / business / school name')+T(p+'empaddr','Employer / business / school address')+T(p+'emplm','Nearest landmark')+T(p+'empgps','Digital address')+T(p+'empcity','City / Town')+T(p+'empnat','Nature of business')+ph(p+'emp1','Business / school / office contact 1')+ph(p+'emp2','Business / school / office contact 2');
+const risk=p=>R(p+'know','Financial knowledge',['Sophisticated','Good','Fair','Novice'])+R(p+'obj','Financial objectives',['Balance','Preservation of contributed amounts','Contractual cash flow','Value appreciation (deal-dependent)'])+R(p+'hor','Time horizon',['1–3 years','3–5 years','5–10 years','10+ years'])+R(p+'risk','Risk tolerance',['Low','Medium','Medium-High','High'])+'<p class="note">All mandates involve commercial risk. No outcome is guaranteed.</p>';
+const act=p=>R(p+'src','Source of funds',['Salary','Proceeds from business','Inheritance / gifts','Personal savings','Others'],'checkbox')+T(p+'srco','If others, please specify')+T(p+'cls','Class and initial funding (refer to the LP Prospectus)')+R(p+'top','Top-up frequency',FREQ)+R(p+'wd','Withdrawals',FREQ)+T(p+'topamt','Regular top-up amount (GHC)','number','min=0')+T(p+'wdamt','Regular withdrawal amount (GHC)','number','min=0');
+const bank=p=>T(p+'bank','Bank name')+T(p+'bacc','Account name')+T(p+'bnum','Account number')+T(p+'bbr','Bank branch');
+const rel=['Spouse','Child','Sibling','Legal entity','Estate','Parent','Other'];
+const ben=(p,sh)=>R(p+'rel','Relationship',rel)+T(p+'relo','If other, specify')+(sh?T(p+'share','Share (%)','number','min=0 max=100'):'')+base(p).replace(/<fieldset><legend>Title[\s\S]*?<\/fieldset>/,'').replace(T(p+'maiden','Maiden name'),'')+T(p+'nat','Nationality')+addr(p).replace(T(p+'landmark','Nearest landmark'),'')+ident(p);
+const terms=["Lynchpin Global (LP) is the brand name of Lynchpin Global Ltd.","LP Global will provide the agreed upon services and propose deals selected at our own discretion. Unless instructed otherwise, this Agreement is to be read in conjunction with our Terms & Conditions to form the basis on which LP Global will provide our advisory, structuring and deal execution services.","This Mandate Agreement outlines our roles and responsibilities as per the terms set in negotiation, as well as subsequently providing you with transactional information and periodic reports. We warrant and undertake at all times to use all reasonable care and skill in the performance of our duties pursuant to this Agreement.","Lynchpin Global Ltd. does not assume custody, control, or possession of any funds, securities, or assets belonging to the Mandate Holder, and shall not commit the Mandate Holder to any obligation beyond those expressly approved in writing.","LP Global will not normally make telephone calls in carrying out our mandate relations and any business function but we may telephone you from time to time to discuss the overall structure of the business or changes in your circumstances or objectives.","All actions undertaken by Lynchpin Global Ltd shall be carried out within documented instructions and agreed mandate parameters. Where expressly provided for in the mandate, Lynchpin Global Ltd may select assets or counterparties from a predefined universe or in accordance with objective criteria approved in advance, without exercising discretionary investment management or portfolio-level decision-making authority.","You should be aware that LP Global might amend its Terms of Business by sending you a written notice describing the relevant changes. Such changes will become effective on the date specified in the notice, which shall be at least 10 business days from the giving of such notice unless it is impractical in the circumstances to give such notice.","Subject to any restrictions indicated by you, we shall be entitled to execute and effect settlement of any kind of transaction on your behalf in relation to your mandate allocation.","You have agreed that from time to time as part of normal settlement procedures where mandate funds are pooled, your funds may be used with those of other mandates to engage in agreed upon partnerships in business with profit-making intent.","You agree that, whereas all Information and Mandate require written and signed confirmation of all instructions, it would be convenient if the mandate could at any time and from time to time, send instructions to LP Global via e-mail. Such Instructions will thereafter be regarded as binding to the Mandate and thus indemnifies Lynchpin Global from any legal consequences arising from the Instruction.","In the event of unforeseeable circumstances beyond a party's control, such as natural disasters, wars, or governmental actions, neither party shall be held responsible for any delays or failures in performance of agreed terms. The affected party must notify the other party in writing and make reasonable efforts to mitigate the impact. Obligations will be suspended during the Force Majeure Event, with performance timelines extended accordingly. If the event persists beyond a specified number of days, either party may terminate the agreement without liability for damages. This clause does not exempt either party from payment obligations as per the end of cycle report issued by LP Global.","Fees payable to Lynchpin Global Ltd shall be on the basis of what is agreed in this document. Fee settlement may occur through deduction from transaction proceeds where expressly agreed, provided such deduction relates solely to that transaction and does not constitute asset-based charging, portfolio-level fees, or ongoing fund control.","This agreement may be terminated, with or without penalty, and without prejudice to the completion of transactions already initiated on your behalf by either party giving immediate notice to that effect to the other. After termination of the agreement, LP Global will not execute any further transactions for you except at your specific request and subject to a new Terms of Business letter or Mandate Agreement being entered into. All oral instructions must be terminated in writing by both parties.","LP Global agrees to provide the necessary business opportunities/services in accordance with the terms and conditions of this Agreement for and on behalf of Lynchpin Global Company LTD."];
+const sig=(id,l)=>`<div class="full"><label>${l}<canvas id="${id}"></canvas></label><button type="button" class="s" onclick="clr('${id}')">Clear</button></div>`;
+const chk=(n,t)=>`<label class="full" style="flex-direction:row;gap:8px;align-items:flex-start;color:var(--ink);font-size:14px"><input type="checkbox" name="${n}" value="Agreed"><span>${t}</span></label>`;
+const pep=['A head of state/government, politician, senior public official, senior military official, senior public corporation officer or high-ranking political party official'];
+f.innerHTML=
+S('Mandate type',R('mtype','Mandate type',['Individual Mandate','Joint Mandate']))+
+S('Applicant 1 · Personal information',full('a1_'))+
+S('Applicant 1 · Contact details',addr('a1_')+proof('a1_'))+
+S('Applicant 1 · Proof of identity',ident('a1_'))+
+S('Mandate reporting preferences',R('rep','Mode of ledger delivery',['Email','By post','SMS','Collection'])+R('freq','Ledger frequency',['Annually','Bi-Annually','Quarterly','Other'])+T('freqo','If other, state frequency')+'<p class="note">Reports are informational summaries of mandate activity and do not represent account statements or portfolio valuations. We reserve the right to refuse a frequency our infrastructure does not allow.</p>')+
+S('Employment / business details',emp('a1e_',['Below 1,000','Above 1,000 – 10,000','10,000 – 100,000','Above 100,000']))+
+S('Mandate risk & objective profile',risk('a1r_'))+
+S('Expected mandate activity',act('a1a_'))+
+S('Bank account details',bank('a1b_'))+
+S('Document upload checklist','<p class="note">Please upload the required documents. All files must be JPG, PNG or PDF and no larger than 5 MB each.</p>'+[
+['pod','Proof of Deposit'],
+['photo','Passport size photo'],
+['ghfront','Ghana Card Front'],
+['ghback','Ghana Card Back'],
+['bghfront','(Beneficiary) Ghana Card Front'],
+['bghback','(Beneficiary) Ghana Card Back'],
+['poa','Proof of Address'],
+['spec','Specimen Signature']
+].map(([n,l])=>`<label class="full" style="flex-direction:row;align-items:center;gap:10px;font-size:13px;color:var(--ink)"><span style="min-width:220px">${l} <em style="color:#c0392b">*</em></span><input type="file" name="${n}" accept=".jpg,.jpeg,.png,.pdf" required></label>`).join(''))+
+S('Applicant 2 · Personal information (joint mandates)',full('a2_')+addr('a2_').replace(T('a2_postal','Postal address'),T('a2_postal','Postal address'))+ident('a2_'),'joint','hidden')+
+S('Applicant 2 · Statement services, employment & profile',R('a2s_mode','Mode of statement delivery',['Email','By post','SMS','Collection'])+R('a2s_freq','Statement frequency',['Monthly','Quarterly'])+emp('a2e_',['Below 1,000','Above 1,000 – 5,000','Above 5,000 – 10,000','Above 10,000'])+risk('a2r_')+act('a2a_')+bank('a2b_'),'joint','hidden')+
+S('Next of kin','<p class="note">For notification and administrative purposes only. Mandate contributions deployed under any mandate remain subject to the terms of the applicable agreements and do not constitute a testamentary disposition. Distribution upon death shall be governed by applicable law and executed agreements.</p>'+ben('nok_',0))+
+S('Beneficiary A',ben('bA_',1))+
+`<details><summary>Additional beneficiary B</summary><div class="g" style="margin-top:12px">${ben('bB_',1)}</div></details><details><summary>Additional beneficiary C</summary><div class="g" style="margin-top:12px">${ben('bC_',1)}</div></details>`+
+S('Mandate authorisation & signing instructions',R('auth','Mandate authorisation',['Only one to sign','Either to sign','Both to sign'])+'<p class="note">Applicable only to administrative instructions. Capital deployment decisions remain subject to executed mandate terms.</p>'+T('s1name','Full name (Signature I)')+T('s1date','Date','date')+sig('s1','Signature I')+`<div class="g full joint" hidden>${T('s2name','Full name (Signature II)')+T('s2date','Date','date')+sig('s2','Signature II')}</div>`)+
+S('Regulatory & tax disclosures',`<p class="note">Designed to help the Company determine whether the mandate holder is a Politically Exposed Person (PEP). Do you, your spouse, or any immediate family member (parents, in-laws, siblings, dependents) fall under: ${pep[0]}…</p>`+R('pep_gh','…in Ghana?',YN)+T('pep_gh_d','If yes: name (if not the applicant) and nature of position')+R('pep_ow','…outside Ghana?',YN)+T('pep_ow_d','If yes: name (if not the applicant) and nature of position')+
+'<p class="note">Common Reporting Standards / FATCA information:</p>'+[['fc','Are you a citizen of any foreign country (besides Ghana)?'],['fp','Do you hold a passport of any foreign country (besides Ghana)?'],['fg','Do you hold a green card of any foreign country (besides Ghana)?'],['fr','Are you resident in any foreign country?'],['fd','Have you spent more than 183 days in any foreign country?']].map(([n,l])=>R(n,l,YN)).join('')+
+`<div class="g full fatca" hidden>${T('fx_name','Full name')+T('fx_res','Foreign residential address')+T('fx_mail','Foreign mailing address')+T('fx_tel','Foreign telephone number')+T('fx_tin','Foreign TIN / SSN / National Identity Number')+chk('fx_consent','Subject to the applicable local laws, I give consent to the Company to share my information with foreign tax authorities where necessary to establish my tax liability, and agree that the Company may comply with lawful information requests from domestic or foreign tax authorities.')}</div>`)+
+S('Email / telephone / fax indemnity',`<p class="note">I/we declare that instructions relating to my/our mandate would be authorized by me/us in person or in writing with my/our original signature(s) and ID(s). I/we reserve the right to issue instructions for transactions with my/our funding by fax, email or telephone call at the discretion of Lynchpin Global. I/we am/are aware that email and telephone authorizations are insecure and can be tampered with. By signing, I/we agree to indemnify or absolve Lynchpin Global from any losses and all other liabilities that may result from electronic authorisations.</p>${sig('indem','Signature (Email / telephone / fax indemnity)')}`)+
+S('Fees applicable',`<div class="full" style="overflow-x:auto"><table><tr><th>Participation of mandate</th><th>Discretionary mandate</th></tr><tr><td>Below GH₵250,000</td><td>5%</td></tr><tr><td>GH₵250,000 – GH₵1,000,000</td><td>4.5%</td></tr><tr><td>Above GH₵1,000,000</td><td>4.0%</td></tr></table></div><p class="note">Fees are charged strictly for execution and oversight services and are calculated based on agreed mandate terms or transaction outcomes. Fees do not represent interest, investment returns, or fund management charges.</p>`)+
+S('Mandate acknowledgement & risk disclosure',`<ol class="terms full">${terms.map(t=>`<li>${t}</li>`).join('')}</ol>`+T('initial','Initial participation (GHC)','number','min=0')+chk('terms','I have read and accept the terms above.')+
+R('blind','Blind / illiterate customer ratification',['Applies'],'checkbox')+`<div class="g full blind" hidden>${T('blang','Language the contents were explained in')+T('bby','Explained by (name)')}<p class="note">The contents of this form and the terms governing this relationship have been fully read and explained to the Customer, who seemed to understand and approve before making his mark.</p></div>`)+
+S('Declaration',chk('decl','I/We confirm that all information provided in this form is accurate and complete. Any mandate contributions are provided strictly under a private mandate agreement. Lynchpin Global Ltd provides execution and oversight services and does not act as a licensed fund manager, custodian, or deposit-taking institution. All commercial transactions involve risk, including the potential loss of monetary value and contributions, and no guarantees have been made regarding outcomes, timelines, or profitability. All decisions to participate are made independently, with reliance placed on this agreement and official communication channels.')+'<p class="note">By signing in the signing section above you confirm full comprehension of the risks and obligations associated with your mandate, and any requirements and penalties you may incur.</p>')+
+`<p class="err" id="err"></p><button type="submit">Review &amp; finish</button><div id="res" hidden class="nob" style="margin-top:16px"><p>Review your answers. Copy this record or print the page to PDF.</p><textarea id="out" readonly></textarea><p><button type="button" onclick="out.select();document.execCommand('copy')">Copy data</button> <button type="button" onclick="print()">Print / save as PDF</button></p></div>`;
+
+const pageDefs=[
+{title:'Your profile',sections:['Mandate type','Applicant 1 · Personal information','Applicant 1 · Contact details','Applicant 1 · Proof of identity']},
+{title:'Mandate preferences',sections:['Mandate reporting preferences','Employment / business details','Mandate risk & objective profile','Expected mandate activity','Bank account details']},
+{title:'Supporting documents',sections:['Document upload checklist']},
+{title:'Joint applicant',sections:['Applicant 2 · Personal information (joint mandates)','Applicant 2 · Statement services, employment & profile']},
+{title:'People to contact',sections:['Next of kin','Beneficiary A']},
+{title:'Authorisation & disclosures',sections:['Mandate authorisation & signing instructions','Regulatory & tax disclosures','Email / telephone / fax indemnity']},
+{title:'Review & submit',sections:['Fees applicable','Mandate acknowledgement & risk disclosure','Declaration']}
+];
+const titleToPage=new Map(pageDefs.flatMap((p,i)=>p.sections.map(title=>[title,i]))),pages=pageDefs.map((p,i)=>{const el=document.createElement('div');el.className='wizard-page';el.id=`wizard-page-${i}`;el.setAttribute('aria-labelledby',`wizard-heading-${i}`);el.innerHTML=`<h2 class="wizard-heading" id="wizard-heading-${i}" tabindex="-1">${p.title}</h2>`;return el});
+const original=[...f.children],errorNode=original.find(n=>n.id==='err');let currentStep=0;if(errorNode){errorNode.hidden=true;errorNode.setAttribute('role','alert');errorNode.setAttribute('tabindex','-1')}
+original.forEach(node=>{if(node===errorNode)return;let index=pageDefs.length-1;if(node.matches('section'))index=titleToPage.get(node.querySelector('h2')?.textContent)||0;else if(node.matches('details'))index=4;pages[index].append(node)});
+const progress=document.createElement('div');progress.className='wizard-progress';progress.innerHTML='<div class="wizard-progress-top"><p id="wizard-count" aria-live="polite"></p><p class="wizard-save" id="wizard-save" aria-live="polite">Your progress is saved in this tab.</p></div><progress id="wizard-bar" max="6" value="1" aria-label="Application progress"></progress><ol class="wizard-steps" aria-label="Application steps"></ol>';
+progress.querySelector('#wizard-save').textContent='Your entries save in this browser until submission. Re-select documents after a refresh.';
+const stepList=progress.querySelector('.wizard-steps');pageDefs.forEach((p,i)=>{const li=document.createElement('li');li.textContent=p.title;li.dataset.number=String(i+1);li.id=`wizard-step-${i}`;stepList.append(li)});
+pages.forEach((page,i)=>{const controls=document.createElement('div');controls.className='wizard-controls';controls.innerHTML=`<button type="button" class="s wizard-back" ${i===0?'disabled':''}>Back</button>${i<pageDefs.length-1?'<button type="button" class="wizard-next">Continue</button>':''}`;page.append(controls)});
+f.replaceChildren(progress,...(errorNode?[errorNode]:[]),...pages);
+const $=s=>f.querySelector(s),all=s=>[...f.querySelectorAll(s)],val=n=>(f.elements[n]||{}).value;
+const pads={};
+['s1','s2','indem'].forEach(id=>{const c=document.getElementById(id),x=c.getContext('2d');let d=0;const rs=()=>{const r=c.getBoundingClientRect();c.width=r.width*2;c.height=r.height*2;x.scale(2,2);x.lineWidth=2;x.lineCap='round';x.strokeStyle=getComputedStyle(document.body).color};rs();pads[id]={c,x,drawn:false};
+const p=e=>{const r=c.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
+c.onpointerdown=e=>{d=1;c.setPointerCapture(e.pointerId);x.beginPath();x.moveTo(...p(e))};c.onpointermove=e=>{if(d){x.lineTo(...p(e));x.stroke();pads[id].drawn=true}};c.onpointerup=()=>d=0});
+function clr(id){const q=pads[id];q.x.clearRect(0,0,q.c.width,q.c.height);q.drawn=false;queueDraftSave()}
+function jointSelected(){return f.querySelector('[name=mtype]:checked')?.value==='Joint Mandate'}
+function visibleSteps(){return pageDefs.map((_,i)=>i).filter(i=>i!==3||jointSelected())}
+function updateWizard(){const steps=visibleSteps();if(!steps.includes(currentStep))currentStep=steps[Math.max(0,steps.indexOf(4))]??steps[0];pages.forEach((p,i)=>{p.hidden=i!==currentStep});stepList.querySelectorAll('li').forEach((li,i)=>{const pos=steps.indexOf(i);li.hidden=pos<0;li.dataset.number=pos<0?'':String(pos+1);if(i===currentStep)li.setAttribute('aria-current','step');else li.removeAttribute('aria-current')});const pos=steps.indexOf(currentStep);$('#wizard-count').textContent=`Page ${pos+1} of ${steps.length} · ${pageDefs[currentStep].title}`;$('#wizard-bar').max=steps.length;$('#wizard-bar').value=pos+1;const active=pages[currentStep];active.querySelector('.wizard-back').disabled=pos===0;const next=active.querySelector('.wizard-next');if(next)next.textContent=steps[pos+1]===6?'Continue to review':'Continue'}
+function setStep(index,focus=true){currentStep=index;updateWizard();if(errorNode){errorNode.textContent='';errorNode.hidden=true}saveDraft();if(focus){const heading=$(`#wizard-heading-${currentStep}`);heading.focus();heading.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})}}
+pages.forEach((page,i)=>{page.querySelector('.wizard-back').addEventListener('click',()=>{const steps=visibleSteps(),pos=steps.indexOf(currentStep);if(pos>0)setStep(steps[pos-1])});const next=page.querySelector('.wizard-next');if(next)next.addEventListener('click',()=>{const steps=visibleSteps(),pos=steps.indexOf(currentStep);if(pos>=0&&pos<steps.length-1)setStep(steps[pos+1])})});
+function queueDraftSave(){const status=$('#wizard-save');status.textContent='Saving progress…';clearTimeout(saveTimer);saveTimer=setTimeout(saveDraft,250)}
+let saveTimer;
+function saveDraft(){const fields={},signatures={};f.querySelectorAll('[name]').forEach(el=>{if(el.type==='file')return;if(el.type==='radio'){if(el.checked)fields[el.name]=el.value}else if(el.type==='checkbox'){if(el.checked)(fields[el.name]??=[]).push(el.value)}else fields[el.name]=el.value});Object.entries(pads).forEach(([id,p])=>{if(p.drawn)signatures[id]=p.c.toDataURL('image/png')});try{localStorage.setItem('lp28',JSON.stringify({fields,signatures,step:currentStep}));$('#wizard-save').textContent='Progress saved in this browser.'}catch(e){$('#wizard-save').textContent='Progress could not be saved in this browser. Keep this page open.';$('#wizard-save').setAttribute('role','alert')}}
+function sync(){const j=val('mtype')==='Joint Mandate'||(f.querySelector('[name=mtype]:checked')||{}).value==='Joint Mandate';all('.joint').forEach(e=>e.hidden=!j);
+all('.permit').forEach(e=>{const p=e.closest('section,details').querySelector('[name$=nat]');e.hidden=!(p&&p.value.trim()&&!/ghana/i.test(p.value))});
+$('.fatca').hidden=!['fc','fp','fg','fr','fd'].some(n=>(f.querySelector(`[name=${n}]:checked`)||{}).value==='Yes');
+$('.blind').hidden=!f.querySelector('[name=blind]:checked');updateWizard()}
+try{let saved=JSON.parse(localStorage.getItem('lp28')||'null');if(saved&&!saved.fields){const legacy=saved,fields={};f.querySelectorAll('[name]').forEach(el=>{const value=legacy[el.name];if(el.type==='file'||value===undefined||typeof value!=='string')return;if(el.type==='radio'){if(el.value===value)fields[el.name]=value}else if(el.type==='checkbox'){if(el.value===value)fields[el.name]=[value]}else fields[el.name]=value});saved={fields,signatures:{},step:0};localStorage.setItem('lp28',JSON.stringify(saved))}if(saved&&saved.fields){f.querySelectorAll('[name]').forEach(el=>{if(el.type==='file')return;const value=saved.fields[el.name];if(value===undefined)return;if(el.type==='radio')el.checked=el.value===value;else if(el.type==='checkbox')el.checked=Array.isArray(value)?value.includes(el.value):el.value===value;else if(typeof value==='string')el.value=value});if(Number.isInteger(saved.step))currentStep=saved.step;Object.entries(saved.signatures||{}).forEach(([id,data])=>{if(!pads[id])return;const img=new Image();img.onload=()=>{const p=pads[id];p.x.drawImage(img,0,0,p.c.width/2,p.c.height/2);p.drawn=true};img.src=data})}}catch(e){$('#wizard-save').textContent='Saved progress could not be restored. Start with the information shown.';$('#wizard-save').setAttribute('role','alert')}
+f.addEventListener('input',()=>{sync();queueDraftSave()});
+f.addEventListener('change',()=>{sync();queueDraftSave()});
+Object.values(pads).forEach(p=>p.c.addEventListener('pointerup',queueDraftSave));
+sync();
+
+const LABELS={mtype:'Mandate type',rep:'Mode of ledger delivery',freq:'Ledger frequency',freqo:'If other, state frequency',initial:'Initial participation (GHC)',s1name:'Full name (Signature I)',s1date:'Date (Signature I)',s2name:'Full name (Signature II)',s2date:'Date (Signature II)',auth:'Mandate authorisation',pep_gh:'PEP in Ghana?',pep_gh_d:'PEP in Ghana – details',pep_ow:'PEP outside Ghana?',pep_ow_d:'PEP outside Ghana – details',blang:'Language contents explained in',bby:'Explained by (name)'};
+const PREFIX={a1_:'Applicant 1 · ',a1e_:'Applicant 1 · ',a1r_:'Applicant 1 · ',a1a_:'Applicant 1 · ',a1b_:'Applicant 1 · ',a2_:'Applicant 2 · ',a2e_:'Applicant 2 · ',a2r_:'Applicant 2 · ',a2a_:'Applicant 2 · ',a2b_:'Applicant 2 · ',nok_:'Next of kin · ',bA_:'Beneficiary A · ',bB_:'Beneficiary B · ',bC_:'Beneficiary C · '};
+const FIELD={surname:'Surname',first:'First name',other:'Other name(s)',maiden:'Maiden name',marital:'Marital status',gender:'Gender',dob:'Date of birth',pob:'Place of birth',mother:"Mother's maiden name",father:"Father's name",res:'Resident status',nat:'Nationality',cor:'Country of residence',permit:'Resident permit number',pissue:'Permit issue date',pplace:'Place of issue',pexp:'Permit expiry date',occ:'Occupation',prof:'Profession',tin:'TIN',title:'Title',addr:'Residential address',landmark:'Nearest landmark',gps:'Digital address (Ghana Post GPS)',city:'City / Town',postal:'Postal address',email:'Email address',phone:'Primary mobile',poa:'Proof of address',poaother:'If other, specify',nid:'National ID number (Ghana Card)',nplace:'Place of issue',nexp:'Expiry date',nissue:'Issue date',status:'Status',yrs:'Years of employment',yrsc:'Years of current employment',yrsp:'Years of previous employment',income:'Total monthly income range (GHC)',empname:'Employer / business / school name',empaddr:'Employer / business / school address',emplm:'Nearest landmark',empgps:'Digital address',empcity:'City / Town',empnat:'Nature of business',emp1:'Business / school / office contact 1',emp2:'Business / school / office contact 2',know:'Financial knowledge',obj:'Financial objectives',hor:'Time horizon',risk:'Risk tolerance',src:'Source of funds',srco:'If others, please specify',cls:'Class and initial funding',top:'Top-up frequency',wd:'Withdrawals',topamt:'Regular top-up amount (GHC)',wdamt:'Regular withdrawal amount (GHC)',bank:'Bank name',bacc:'Account name',bnum:'Account number',bbr:'Bank branch',rel:'Relationship',relo:'If other, specify',share:'Share (%)',fc:'Foreign citizen?',fp:'Foreign passport?',fg:'Foreign green card?',fr:'Foreign resident?',fd:'More than 183 days abroad?',fx_name:'Full name',fx_res:'Foreign residential address',fx_mail:'Foreign mailing address',fx_tel:'Foreign telephone number',fx_tin:'Foreign TIN / SSN / National Identity Number'};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function buildPrint(d){
+const rows=[];
+const add=(l,v)=>{v=String(v??'').trim();if(v)rows.push(`<div class="pd-row"><span class="pd-l">${esc(l)}</span><span>${esc(v)}</span></div>`)};
+const addGroup=(title,prefix,skip)=>{let n=0;for(const k in FIELD){if(skip&&skip.includes(k))continue;const v=d[prefix+k];if(v&&String(v).trim()){add((PREFIX[prefix]||'')+FIELD[k],v);n++}}return n};
+addGroup('', 'a1_');addGroup('', 'a1e_');addGroup('', 'a1r_');addGroup('', 'a1a_');addGroup('', 'a1b_');
+add('Mode of ledger delivery',d.rep);add('Ledger frequency',d.freq);add('If other, state frequency',d.freqo);
+if(d.mtype==='Joint Mandate'){addGroup('', 'a2_');addGroup('', 'a2e_');addGroup('', 'a2r_');addGroup('', 'a2a_');addGroup('', 'a2b_')}
+add('Mode of statement delivery (Applicant 2)',d.a2s_mode);add('Statement frequency (Applicant 2)',d.a2s_freq);
+addGroup('', 'nok_');addGroup('', 'bA_');addGroup('', 'bB_');addGroup('', 'bC_');
+add('Mandate authorisation',d.auth);add('Full name (Signature I)',d.s1name);add('Date (Signature I)',d.s1date);add('Full name (Signature II)',d.s2name);add('Date (Signature II)',d.s2date);
+add('PEP in Ghana?',d.pep_gh);add('PEP in Ghana – details',d.pep_gh_d);add('PEP outside Ghana?',d.pep_ow);add('PEP outside Ghana – details',d.pep_ow_d);
+['fc','fp','fg','fr','fd'].forEach(n=>add(FIELD[n],d[n]));
+['fx_name','fx_res','fx_mail','fx_tel','fx_tin'].forEach(n=>add(FIELD[n],d[n]));
+add('Initial participation (GHC)',d.initial);add('Language contents explained in',d.blang);add('Explained by (name)',d.bby);
+const sigs=[['Signature I',pads.s1,d.s1name],['Signature II',pads.s2,d.s2name],['Email / telephone / fax indemnity signature',pads.indem,'']].filter(([,p])=>p.drawn);
+const sigHtml=sigs.map(([l,p,n])=>`<div class="pd-row"><span class="pd-l">${l}</span><span><img class="pd-sig" src="${p.c.toDataURL('image/png')}" alt="${esc(l)}"></span></div>`).join('')+(sigs.length?`<div class="pd-row"><span class="pd-l">Signed by</span><span>${esc(sigs.map(s=>s[2]).filter(Boolean).join(', '))}</span></div>`:'');
+const checks=[['terms','Terms & conditions accepted'],['decl','Declaration confirmed'],['fx_consent','Foreign tax information sharing consent']].filter(([n])=>d[n]).map(([,l])=>`<div class="pd-row"><span class="pd-l">${l}</span><span>✓ Agreed</span></div>`).join('');
+const DOCS=[['pod','Proof of Deposit'],['photo','Passport size photo'],['ghfront','Ghana Card Front'],['ghback','Ghana Card Back'],['bghfront','(Beneficiary) Ghana Card Front'],['bghback','(Beneficiary) Ghana Card Back'],['poa','Proof of Address'],['spec','Specimen Signature']];
+const docRows=DOCS.map(([n,l])=>{const v=d[n];return `<div class="pd-row"><span class="pd-l">${l}</span><span>${v&&v.name?'✓ Uploaded ('+esc(v.name)+')':'—'}</span></div>`}).join('');
+document.getElementById('printdoc').innerHTML=`<div class="pd-head"><img class="logo" src="new-logo-lynch.svg" alt="Lynchpin Global logo"><h1>Mandate Registration Form</h1><p>Participant Due Diligence &amp; Mandate Registration · REF: ${esc(d.ref)} · Submitted ${esc(new Date(d.signedAt).toLocaleString())}</p></div>${rows.join('')}${sigHtml}${checks}${docRows}`;
+}
+</script><script src="mandate-enhancements.js?v=20261026-9"></script></body></html>
