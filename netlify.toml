@@ -4,3 +4,7 @@
 # Netlify's secrets scanning to avoid false positives.
 [build.environment]
   SECRETS_SCAN_OMIT_PATHS = ".env.example"
+  # PORT is not used by the Netlify Function (Netlify manages the port itself)
+  # and its placeholder value "3000" appears in URLs, timeouts, and SVG
+  # coordinates, so exclude it from scanning.
+  SECRETS_SCAN_OMIT_KEYS = "PORT"
