@@ -2,5 +2,5 @@
 # The .env.example file contains placeholder values only (no real credentials).
 # It is committed as a template for local development, so exclude it from
 # Netlify's secrets scanning to avoid false positives.
-[build]
+[build.environment]
   SECRETS_SCAN_OMIT_PATHS = ".env.example"
