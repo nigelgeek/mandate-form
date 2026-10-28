@@ -51,7 +51,8 @@ app.use((request, response, next) => {
 });
 
 const pageFiles = {
-  '/': 'Lynchpin Global – Mandate Registration Form.html',
+  '/': 'index.html',
+  '/index.html': 'index.html',
   '/mandate-enhancements.js': 'mandate-enhancements.js',
   '/mandate-enhancements.css': 'mandate-enhancements.css',
   '/new-logo-lynch.svg': 'new-logo-lynch.svg'
