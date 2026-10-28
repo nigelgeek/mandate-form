@@ -120,7 +120,7 @@ function sameOrigin(request) {
   }
 }
 
-app.post('/api/submit', submissionLimiter, (request, response, next) => {
+app.post(['/api/submit', '/.netlify/functions/submit'], submissionLimiter, (request, response, next) => {
   if (!sameOrigin(request)) {
     response.status(403).json({ error: 'Submission must come from this form.' });
     return;
