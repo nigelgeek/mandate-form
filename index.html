@@ -189,4 +189,4 @@ const DOCS=[['pod','Proof of Deposit'],['photo','Passport size photo'],['ghfront
 const docRows=DOCS.map(([n,l])=>{const v=d[n];return `<div class="pd-row"><span class="pd-l">${l}</span><span>${v&&v.name?'✓ Uploaded ('+esc(v.name)+')':'—'}</span></div>`}).join('');
 document.getElementById('printdoc').innerHTML=`<div class="pd-head"><img class="logo" src="new-logo-lynch.svg" alt="Lynchpin Global logo"><h1>Mandate Registration Form</h1><p>Participant Due Diligence &amp; Mandate Registration · REF: ${esc(d.ref)} · Submitted ${esc(new Date(d.signedAt).toLocaleString())}</p></div>${rows.join('')}${sigHtml}${checks}${docRows}`;
 }
-</script><script src="mandate-enhancements.js?v=20261026-9"></script></body></html>
+</script><script src="mandate-enhancements.js?v=20261026-10"></script></body></html>

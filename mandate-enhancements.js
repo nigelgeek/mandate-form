@@ -650,9 +650,41 @@
     updateSignatureReuse();
   }
 
+  // html2canvas cannot render the gradient stroke of the external SVG logo
+  // file, so the logo appears blank in the emailed PDF. Inline the SVG into
+  // #printdoc so both the PDF capture and the browser print render it fully.
+  let logoSvgPromise = null;
+  async function inlinePrintLogo() {
+    const printDoc = document.getElementById('printdoc');
+    const logo = printDoc?.querySelector('.pd-head .logo');
+    if (!logo || logo.tagName.toLowerCase() === 'svg') return;
+    try {
+      if (!logoSvgPromise) {
+        logoSvgPromise = fetch('new-logo-lynch.svg').then(response => {
+          if (!response.ok) throw new Error(`Logo could not be loaded (${response.status}).`);
+          return response.text();
+        });
+      }
+      const svgText = await logoSvgPromise;
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = svgText;
+      const svg = wrapper.querySelector('svg');
+      if (!svg) return;
+      svg.classList.add('logo');
+      svg.setAttribute('role', 'img');
+      svg.setAttribute('aria-label', logo.getAttribute('alt') || 'Lynchpin Global logo');
+      svg.removeAttribute('id');
+      svg.removeAttribute('data-name');
+      logo.replaceWith(svg);
+    } catch (error) {
+      console.warn('The logo could not be inlined for the PDF; using the image fallback.', error);
+    }
+  }
+
   const oldBuildPrint = buildPrint;
-  buildPrint = data => {
+  buildPrint = async data => {
     oldBuildPrint(data);
+    await inlinePrintLogo();
     const printDoc = document.getElementById('printdoc');
     const addPrintRow = (label, value) => {
       const row = document.createElement('div');
@@ -707,7 +739,7 @@
     data.ref = '28JFM26';
     data.signedAt = new Date().toISOString();
     data.sig1 = pads.s1.c.toDataURL('image/png').slice(0, 60);
-    buildPrint(data);
+    await buildPrint(data);
     resultBox.hidden = false;
     goToPage(pages.length - 1, false);
     await sendPdf(data);
