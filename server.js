@@ -55,7 +55,7 @@ const pageFiles = {
   '/index.html': 'index.html',
   '/mandate-enhancements.js': 'mandate-enhancements.js',
   '/mandate-enhancements.css': 'mandate-enhancements.css',
-  '/new-logo-lynch.svg': 'new-logo-lynch.svg'
+  '/new-logo-lynch-png.png': 'new-logo-lynch-png.png'
 };
 for (const [route, file] of Object.entries(pageFiles)) {
   app.get(route, (request, response) => response.sendFile(path.join(__dirname, file)));

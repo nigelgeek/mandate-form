@@ -61,7 +61,7 @@ table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid 
 @media(prefers-reduced-motion:reduce){.wizard-page{animation:none}}
 @media print{form button,.nob{display:none}body{background:#fff;color:#000}section{break-inside:avoid}#printdoc{display:block!important}form{display:none!important}}
 </style></head><body>
-<header><img class="logo" src="new-logo-lynch.svg" alt="Lynchpin Global logo"><h1>Mandate Registration Form</h1><p>Participant Due Diligence &amp; Mandate Registration · REF: 28JFM26</p></header>
+<header><img class="logo" src="new-logo-lynch-png.png" alt="Lynchpin Global logo"><h1>Mandate Registration Form</h1><p>Participant Due Diligence &amp; Mandate Registration · REF: 28JFM26</p></header>
 <form id="f" novalidate></form>
 <div id="printdoc"></div>
 <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.2/dist/html2pdf.bundle.min.js"></script>
@@ -187,6 +187,6 @@ const sigHtml=sigs.map(([l,p,n])=>`<div class="pd-row"><span class="pd-l">${l}</
 const checks=[['terms','Terms & conditions accepted'],['decl','Declaration confirmed'],['fx_consent','Foreign tax information sharing consent']].filter(([n])=>d[n]).map(([,l])=>`<div class="pd-row"><span class="pd-l">${l}</span><span>✓ Agreed</span></div>`).join('');
 const DOCS=[['pod','Proof of Deposit'],['photo','Passport size photo'],['ghfront','Ghana Card Front'],['ghback','Ghana Card Back'],['bghfront','(Beneficiary) Ghana Card Front'],['bghback','(Beneficiary) Ghana Card Back'],['poa','Proof of Address'],['spec','Specimen Signature']];
 const docRows=DOCS.map(([n,l])=>{const v=d[n];return `<div class="pd-row"><span class="pd-l">${l}</span><span>${v&&v.name?'✓ Uploaded ('+esc(v.name)+')':'—'}</span></div>`}).join('');
-document.getElementById('printdoc').innerHTML=`<div class="pd-head"><img class="logo" src="new-logo-lynch.svg" alt="Lynchpin Global logo"><h1>Mandate Registration Form</h1><p>Participant Due Diligence &amp; Mandate Registration · REF: ${esc(d.ref)} · Submitted ${esc(new Date(d.signedAt).toLocaleString())}</p></div>${rows.join('')}${sigHtml}${checks}${docRows}`;
+document.getElementById('printdoc').innerHTML=`<div class="pd-head"><img class="logo" src="new-logo-lynch-png.png" alt="Lynchpin Global logo"><h1>Mandate Registration Form</h1><p>Participant Due Diligence &amp; Mandate Registration · REF: ${esc(d.ref)} · Submitted ${esc(new Date(d.signedAt).toLocaleString())}</p></div>${rows.join('')}${sigHtml}${checks}${docRows}`;
 }
 </script><script src="mandate-enhancements.js?v=20261026-10"></script></body></html>
